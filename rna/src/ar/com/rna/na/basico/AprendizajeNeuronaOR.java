@@ -1,10 +1,10 @@
 //Aprendizaje puerta logica OR. (Muestra datos paso a paso)
-package ar.com.rna.na;
+package ar.com.rna.na.basico;
 
 import java.util.Random;
 import java.util.Scanner;
 
-public class NeuronaOR {
+public class AprendizajeNeuronaOR {
 
     public static void main(String[] args) {
         //Tabla de la verdad (X1,X2,Y1)

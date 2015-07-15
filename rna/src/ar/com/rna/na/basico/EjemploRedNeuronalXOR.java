@@ -1,9 +1,9 @@
 //Perceptrón multicapa: Puerta Lógica XOR
-package ar.com.rna.na;
+package ar.com.rna.na.basico;
 
 import java.util.Scanner;
 
-public class NeuronaXOR {
+public class EjemploRedNeuronalXOR {
 
     public static void main(String[] args) {
         //Introducción manual de las entradas x1, x2.
@@ -17,9 +17,11 @@ public class NeuronaXOR {
         double w11 = -1.942779536696304;//Pesos neurona 1
         double w12 = -2.4033439922084954;
         double u1 = -2.2690966258542424;
+        
         double w21 = 1.476484576128277;//Pesos neurona 2
         double w22 = 1.5285706752204653;
         double u2 = -1.2654579142409594;
+        
         double w31 = -2.7857541174718032;//Pesos neurona 3
         double w32 = -2.81730152144229;
         double u3 = -2.52832962325685;

@@ -1,10 +1,10 @@
 //Aprendizaje puerta logica AND
-package ar.com.rna.na;
+package ar.com.rna.na.basico;
 
 import java.util.Random;
 import java.util.Scanner;
 
-public class NeuronaAND {
+public class AprendizajeNeuronaAND {
 
     public static void main(String[] args) {
         //Tabla de la verdad puerta AND (X1,X2,Y1)
@@ -24,22 +24,24 @@ public class NeuronaAND {
 
         System.out.println("Iniciando fase de aprendizaje puerta logica AND...");
         int i = 0;
-        int cont = 1;
+        int cont = 1; // VDC: cantidad maxima de iteraciones.
         while (i < tv.length && cont < 10000) {
             y = Math.tanh((tv[i][0] * w1) + (tv[i][1] * w2) + (-1 * u));
-            y = (y >= u) ? 1 : -1;            
+            y = (y >= u) ? 1 : -1; 
+            // VDC: Si la salida es la esperada para la entrada acutal => incrementa el "i" para tomar la siguiente entrada  
             if (y == tv[i][2]) {
                 i++;
-            } else {
+            } else { // VDC: Sino => ajusta los pesos
                 //Ajuste de pesos
                 w1 = w1 + 2 * E * tv[i][2] * tv[i][0];
                 w2 = w2 + 2 * E * tv[i][2] * tv[i][1];
                 u = u + 2 * E * tv[i][2] * (-1);
                 cont++;
-                i = 0;
+                i = 0;	//VDC: reinicia el proceso de aprendizaje
             }
         }
 
+        //VDC: Si salio del while anterior antes de llegar al maximo de iteraciones => es porque aprendio.
         if (cont <= 9999) {
             System.out.println("Fase de aprendizaje terminado con exito ");
             

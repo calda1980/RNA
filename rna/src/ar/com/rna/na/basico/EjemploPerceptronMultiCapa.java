@@ -1,10 +1,10 @@
 //Perceptron multicapa
-package ar.com.rna.na;
+package ar.com.rna.na.basico;
 
 import java.util.Random;
 import java.util.Scanner;
 
-public class PerceptronMultiCapa {
+public class EjemploPerceptronMultiCapa {
 
     public static void main(String[] args) {
         //Introduccion manual de las entradas x1, x2.
