@@ -9,8 +9,8 @@ public class NeuronaTest {
 		// crea la neruona indicando que tendra 2 entradas
 		Neurona U = new Neurona(2);
 		// asigna valores a sus 2 entradas
-		U.x[0] = 10;
-		U.x[1] = 8.7;
+		U.x[0] = 0;
+		U.x[1] = 1;
 		// hace los calculos correspondientes
 		U.calcularNet();
 		U.calcularActivacion();
