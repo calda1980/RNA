@@ -1,4 +1,4 @@
-package ar.com.misdosneuronas.core;
+package ar.com.misdosneuronas.core.v2;
 
 public class FuncionTransferencia {
 	
