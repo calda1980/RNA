@@ -48,9 +48,9 @@ public class Neurona {
 		for (int i = 0; i < w.length; i++) {
 			w[i] = 0.5d;
 		}
-		// asigna las Funcion de Activacion
-		G = new FuncionActivacion();
-		// asigna la Funcion de Transferencia
+		// asigna la Funcion de Activacion Umbral con valor 0.2
+		G = new FuncionActivacion(0.2);
+		// asigna la Funcion de Transferencia Escalon Unitario
 		F = new FuncionTransferencia();
 	}
 	//--------------- Caclulos ---------------//
