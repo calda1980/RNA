@@ -1,5 +1,11 @@
 package ar.com.misdosneuronas.core.v2;
 
+/**
+ * @author Vincent
+ * 
+ * Funcion Umbral
+ * 
+ */
 public class FuncionActivacion {
 	private double theta;
 	
@@ -13,7 +19,7 @@ public class FuncionActivacion {
 	
 	public double calcular(double Net){
 		double result = 0;
-		//TODO implementar
+		
 		result = Net - theta;
 		
 		return result;
