@@ -13,7 +13,7 @@ public class FuncionTransferencia {
 		
 		if(GNet > 0){
 			result = 1;
-		}else{	//GNext <= 0
+		}else{	// GNext <= 0
 			result = 0;
 		}
 				
