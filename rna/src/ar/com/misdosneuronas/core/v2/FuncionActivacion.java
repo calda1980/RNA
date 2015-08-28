@@ -12,7 +12,7 @@ public class FuncionActivacion {
 	public FuncionActivacion(double theta){
 		this.theta = theta;
 	}
-	
+	 
 	public double calcular(double Net){
 		double result = 0;
 		
