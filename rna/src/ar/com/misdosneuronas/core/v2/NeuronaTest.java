@@ -8,7 +8,7 @@ public class NeuronaTest {
 	public static void main(String[] args){
 		// crea la neruona indicando que tendra 2 entradas
 		Neurona U = new Neurona(2);
-		// asigna valores a sus 2 entradas
+		// asigna valores a sus 2 unicas entradas
 		U.x[0] = 1;
 		U.x[1] = 0;
 		// hace los calculos correspondientes
