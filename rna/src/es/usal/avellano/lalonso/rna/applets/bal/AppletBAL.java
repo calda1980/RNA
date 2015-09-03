@@ -1,4 +1,4 @@
-package es.usal.avellano.lalonso.rna.applets;
+package es.usal.avellano.lalonso.rna.applets.bal;
 
 import java.applet.Applet;
 import java.applet.AudioClip;
