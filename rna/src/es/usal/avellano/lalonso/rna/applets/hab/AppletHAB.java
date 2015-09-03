@@ -476,8 +476,13 @@ public class AppletHAB extends Applet implements Runnable, ActionListener,
 	private void button1ActionPerformed(ActionEvent evt) {
 		AudioClip numero = null;
 
-		numero = getAudioClip(getDocumentBase(), this.choice1.getSelectedItem()
-				.toUpperCase() + ".wav");
+//		numero = getAudioClip(getDocumentBase(), this.choice1.getSelectedItem().toUpperCase() + ".wav");
+		java.net.URL numeroURL = getClass().getResource(this.choice1.getSelectedItem().toUpperCase() + ".wav");
+		numero = getAudioClip(numeroURL);
+		
+		
+		
+		
 		numero.play();
 
 		int numPru = this.choice1.getSelectedIndex()
