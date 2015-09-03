@@ -539,9 +539,13 @@ public class AppletBAL extends Applet implements Runnable, ActionListener,
 
 	private void button1ActionPerformed(ActionEvent evt) {
 		AudioClip disparo = null;
+		java.net.URL disparoURL;
 		switch (this.choice1.getSelectedIndex()) {
 		case 0:
-			disparo = getAudioClip(getDocumentBase(), "pistola.wav");
+//			disparo = getAudioClip(getDocumentBase(), "pistola.wav");
+			disparoURL = getClass().getResource("pistola.wav");
+			disparo = getAudioClip(disparoURL);
+			
 			disparo.play();
 			if (this.choice3.getSelectedIndex() == 0)
 				this.multi.ejecutar(0, 0);
@@ -549,7 +553,10 @@ public class AppletBAL extends Applet implements Runnable, ActionListener,
 				this.multi.ejecutar(0, 1);
 			break;
 		case 1:
-			disparo = getAudioClip(getDocumentBase(), "revolver.wav");
+//			disparo = getAudioClip(getDocumentBase(), "revolver.wav");
+			disparoURL = getClass().getResource("revolver.wav");
+			disparo = getAudioClip(disparoURL);
+			
 			disparo.play();
 			switch (this.choice3.getSelectedIndex()) {
 			case 0:
@@ -566,7 +573,10 @@ public class AppletBAL extends Applet implements Runnable, ActionListener,
 			}
 			break;
 		case 2:
-			disparo = getAudioClip(getDocumentBase(), "escopeta.wav");
+//			disparo = getAudioClip(getDocumentBase(), "escopeta.wav");
+			disparoURL = getClass().getResource("escopeta.wav");
+			disparo = getAudioClip(disparoURL);
+			
 			disparo.play();
 			if (this.choice3.getSelectedIndex() == 0)
 				this.multi.ejecutar(0, 6);
