@@ -36,6 +36,11 @@ public class Neurona {
 	 */
 	private FuncionTransferencia F;
 	
+	
+	/**
+	 * 
+	 */
+	private ReglaAprendizaje regla;
 	/**
 	 * Constructor de la clase
 	 */
@@ -52,6 +57,8 @@ public class Neurona {
 		G = new FuncionActivacion(0.2);
 		// asigna la Funcion de Transferencia Escalon Unitario
 		F = new FuncionTransferencia();
+		// asigna la Regla de Aprendizaje
+		regla = new ReglaAprendizaje(0.3, this);
 	}
 	//--------------- Caclulos ---------------//
 	/**
@@ -93,5 +100,13 @@ public class Neurona {
 	 */
 	private double F(double GNet){
 		return F.calcular(GNet);
+	}
+	
+	/**
+	 * Indica a la neurona que aprenda de la salida deseada
+	 * @param salidaDeseada
+	 */
+	public void aprender(double salidaDeseada){
+		regla.entrenar(salidaDeseada);
 	}
 }
