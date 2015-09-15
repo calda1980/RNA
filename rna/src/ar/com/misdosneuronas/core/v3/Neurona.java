@@ -36,11 +36,11 @@ public class Neurona {
 	 */
 	private FuncionTransferencia F;
 	
-	
 	/**
 	 * 
 	 */
 	private ReglaAprendizaje regla;
+	
 	/**
 	 * Constructor de la clase
 	 */

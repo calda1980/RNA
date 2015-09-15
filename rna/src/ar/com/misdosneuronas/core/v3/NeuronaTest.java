@@ -21,6 +21,61 @@ public class NeuronaTest {
 		printEntradaNeta(U);
 		printValorActivacion(U);
 		printSalida(U);
+		
+		//---------------------
+		//-- AND
+		double patrones[][]= {
+					{1, 0},
+					{1, 1},
+					{0, 0},
+					{0, 1}
+				};
+		double salidaDeseada[] = {
+					0,
+					1,
+					0,
+					0
+				};
+		
+		// recorre los patrones
+		int numeroPatron = 0;
+	
+		while(numeroPatron < patrones.length){
+			U.x = patrones[numeroPatron];
+			
+			U.calcularNet();
+			U.calcularActivacion();
+			U.calcularSalida();
+			
+			printEntradas(U);
+			printPesos(U);
+			printEntradaNeta(U);
+			printValorActivacion(U);
+			printSalida(U);
+			
+			System.out.println("Salida Deseada: " + salidaDeseada[numeroPatron]);
+			
+			if(U.y == salidaDeseada[numeroPatron]){ // aprendio
+				numeroPatron = numeroPatron + 1;	// va por el siguiente patron
+				System.out.println("Patron aprendido.");
+			}else{	// seguir aprendiendo
+				System.out.println("Aprendiendo...");
+				U.aprender(salidaDeseada[numeroPatron]);
+			}
+			
+		}
+		//-----------------
+		for (int i = 0; i < patrones.length; i++) {
+			U.x = patrones[i];
+			
+			U.calcularNet();
+			U.calcularActivacion();
+			U.calcularSalida();
+			
+			printArray("Entrada " + i, U.x);
+			System.out.println(" -> " + U.y);
+			
+		}
 	}
 	
 	//--------------- Impresion por consola ---------------//
