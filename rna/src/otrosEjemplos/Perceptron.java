@@ -51,18 +51,42 @@ public class Perceptron {
 	    { 1, 1, 1, 1, 1, 1, 1, 1, 0, 0 },
 	    { 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 } };
 	
-	int numberOfInputNeurons = patterns[0].length;
-	int numberOfOutputNeurons = teachingOutput.length;
-	int numberOfPatterns = patterns.length;
+	int numberOfInputNeurons;
+	int numberOfOutputNeurons;
+	int numberOfPatterns;
 	double[][] weights;
 
+	/**
+	 * 
+	 */
 	public Perceptron() {
+		numberOfInputNeurons = patterns[0].length;
+		numberOfOutputNeurons = teachingOutput.length;
+		numberOfPatterns = patterns.length;
 	    weights = new double[numberOfInputNeurons][numberOfOutputNeurons];
 	}
+	
+	/**
+	 * @param argsk
+	 */
+	public static void main(String[] argsk) {
+		
+		Perceptron p = new Perceptron();
+		System.out.println("Weights before training: ");
+		p.printMatrix(p.weights);
+		p.deltaRule();
+		System.out.println("Weights after training: ");
+		p.printMatrix(p.weights);
+	}
+	
+	/**
+	 * 
+	 */
 	public void deltaRule() {
 		boolean allCorrect = false;
 		boolean error = false;
 		double learningFactor = 0.2;
+		
 		while (!allCorrect) {
 			error = false;
 			for (int i = 0; i < numberOfPatterns; i++) {
@@ -71,15 +95,14 @@ public class Perceptron {
 				for (int j = 0; j < numberOfOutputNeurons; j++) {
 				    if (teachingOutput[i][j] != output[j]) {
 				        for (int k = 0; k < numberOfInputNeurons; k++) {
-				            weights[k][j] = weights[k][j] + learningFactor
-				                    * patterns[i][k]
-				                    * (teachingOutput[i][j] - output[j]);
+				            weights[k][j] = weights[k][j] + learningFactor * patterns[i][k] * (teachingOutput[i][j] - output[j]);
 				        }
 				    }
 				}
 				for (int z = 0; z < output.length; z++) {
-				    if (output[z] != teachingOutput[i][z])
+				    if (output[z] != teachingOutput[i][z]){
 				        error = true;
+				    }
 				}
 			 }
 			if (!error) {
@@ -88,16 +111,18 @@ public class Perceptron {
 		}
 	}
 	
-	int[] setOutputValues(int patternNo) {
+	/**
+	 * @param patternNo
+	 * @return
+	 */
+	private int[] setOutputValues(int patternNo) {
 		double bias = 0.7;
 		int[] result = new int[numberOfOutputNeurons];
 		int[] toImpress = patterns[patternNo];
 		for (int i = 0; i < toImpress.length; i++) {
 			
 			for (int j = 0; j < result.length; j++) {
-			    double net = weights[0][j] * toImpress[0] + weights[1][j]
-			            * toImpress[1] + weights[2][j] * toImpress[2]
-			            + weights[3][j] * toImpress[3];
+			    double net = weights[0][j] * toImpress[0] + weights[1][j] * toImpress[1] + weights[2][j] * toImpress[2] + weights[3][j] * toImpress[3];
 			    if (net > bias)
 			        result[j] = 1;
 			    else
@@ -107,6 +132,9 @@ public class Perceptron {
 		return result;
 	}
 	
+	/**
+	 * @param matrix
+	 */
 	public void printMatrix(double[][] matrix) {
 		
 		for (int i = 0; i < matrix.length; i++) {
@@ -121,16 +149,5 @@ public class Perceptron {
 		    }
 		    System.out.println();
 		}
-	}
-	
-	
-	public static void main(String[] argsk) {
-		
-		Perceptron p = new Perceptron();
-		System.out.println("Weights before training: ");
-		p.printMatrix(p.weights);
-		p.deltaRule();
-		System.out.println("Weights after training: ");
-		p.printMatrix(p.weights);
 	}
 }
